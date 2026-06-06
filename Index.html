@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html ng-app="MyMod">
+  <head>
+    <meta charset="UTF-8">
+    <!-- ✅ FIX: viewport meta tag was missing -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adeeba Shaikh - Full Stack Developer</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+  <script src="Route_module.js"></script>
+  <script src="working_module.js"></script>
+
+ 
+    <style>
+      /* ── Reset ── */
+      * { box-sizing: border-box; }
+      body { background-color: #1a1a2e; }
+ 
+      /* ── Header ── */
+      .site-header {
+        background-color: #212529;
+        color: #fff;
+        text-align: center;
+        padding: 18px 15px;
+        border-radius: 8px;
+        margin-bottom: 0;
+        font-size: clamp(1rem, 4vw, 1.6rem); /* ✅ scales with screen */
+        font-weight: 700;
+      }
+ 
+      /* ── Alert ── */
+      .custom-alert {
+        margin-bottom: 6px !important;
+        padding: 6px 10px;
+      }
+ 
+      /* ── Sidebar ── */
+      .sidebar {
+        background-color: #212529;
+        border-radius: 8px;
+        padding: 15px 10px;
+        /* ✅ FIX: no fixed width/height */
+        width: 100%;
+        height: auto;
+      }
+ 
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+ 
+      .sidebar ul li a {
+        display: block;
+        color: #4da3ff;
+        text-decoration: none;
+        padding: 10px 8px;
+        font-size: 1.15rem;    /* ✅ FIX: was 30px fixed */
+        border-radius: 6px;
+        transition: background 0.2s, color 0.2s;
+      }
+ 
+      .sidebar ul li a:hover,
+      .sidebar ul li a.active {
+        background-color: rgba(77,163,255,0.15);
+        color: #fff;
+      }
+ 
+      /* ── Content area ── */
+      .content-area {
+        min-height: 300px;   /* ✅ FIX: was 405px fixed */
+      }
+ 
+      /* ── Footer ── */
+      .site-footer {
+        background-color: #212529;
+        color: #fff;
+        text-align: center;
+        padding: 14px;
+        border-radius: 8px;
+        margin-top: 8px;
+        font-size: 1rem;
+      }
+ 
+      /* ════════════════════════════════
+         MOBILE  (< 576px)
+      ════════════════════════════════ */
+      @media (max-width: 575px) {
+ 
+        /* Nav becomes a horizontal pill row */
+        .sidebar {
+          margin-bottom: 12px;
+          padding: 10px 8px;
+        }
+ 
+        .sidebar ul {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 6px;
+        }
+ 
+        .sidebar ul li a {
+          font-size: 0.8rem;
+          padding: 6px 12px;
+          background-color: rgba(255,255,255,0.07);
+          border-radius: 20px;
+          white-space: nowrap;
+        }
+      }
+    </style>
+  </head>
+ 
+  <body ng-controller="MyController">
+    <div class="container-fluid px-2 px-sm-3 py-2">
+ 
+      <!-- HEADER -->
+      <div class="row mb-1">
+        <div class="col-12">
+          <div class="site-header">Hi My name is Adeeba Shaikh — Full Stack Web Developer</div>
+          <div id="successAlert" class="alert alert-success text-center custom-alert" style="display:none;">
+            ✅ Message sent successfully!
+          </div>
+        </div>
+      </div>
+ 
+      <!-- SIDEBAR + MAIN -->
+      <div class="row g-2">
+ 
+        <!-- Sidebar: full width on mobile, 3 cols on sm+ -->
+        <div class="col-12 col-sm-3">
+          <div class="sidebar text-center">
+            <ul>
+              <li><a href="#/home">Home</a></li>
+              <li><a href="#/about">About me</a></li>
+              <li><a href="#/projects">Projects</a></li>
+              <li><a href="#/skills">Skills</a></li>
+              <li><a href="#/contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+ 
+        <!-- Content -->
+        <div class="col-12 col-sm-9 content-area">
+          <div ng-view></div>
+        </div>
+      </div>
+ 
+      <!-- Hidden Netlify form -->
+      <form name="contact" netlify hidden>
+        <input type="text" name="name">
+        <input type="text" name="contact">
+        <textarea name="message"></textarea>
+      </form>
+ 
+      <!-- FOOTER -->
+      <div class="row">
+        <div class="col-12">
+          <div class="site-footer">&copy; 2026. All rights are reserved.</div>
+        </div>
+      </div>
+ 
+    </div>
+ 
+    <script>
+      document.addEventListener("click", function(e) {
+        if (e.target && e.target.id === "submitBtn") {
+          e.preventDefault();
+          const form = document.getElementById("contactForm");
+          const successMsg = document.getElementById("successMsg");
+          const formData = new FormData(form);
+          fetch("/", { method: "POST", body: formData })
+            .then(() => { successMsg.style.display = "block"; form.reset(); })
+            .catch(() => { alert("Something went wrong!"); });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!-- <div class="bg-dark text-center text-white rounded shadow" style="height: 532px;">
+
+  <h1 class="mb-4">Contact Me</h1>
+
+  <div class="mb-3">
+    <i class="fas fa-phone me-2 text-info"></i>
+    <strong>Phone:</strong> 
+    <a href="tel:+919082122041" class="text-white text-decoration-none">+91 9082122041</a>
+  </div>
+
+  <div class="mb-3">
+    <i class="fas fa-envelope me-2 text-info"></i>
+    <strong>Email:</strong> 
+    <a href="mailto:shaikhadeeba171104@email.com" class="text-white text-decoration-none">shaikhadeeba171104@email.com</a>
+  </div>
+
+  <div class="mb-3">
+    <i class="fab fa-linkedin me-2 text-info"></i>
+    <strong>LinkedIn:</strong> 
+    <a href="https://www.linkedin.com/in/shaikhadeebahanif/" target="_blank" class="text-info text-decoration-none">
+      View My LinkedIn Profile
+    </a>
+  </div>
+
+  <div class="mb-3">
+    <i class="fab fa-github me-2 text-info"></i>
+    <strong>GitHub:</strong> 
+    <a href="https://github.com/AdeebaHanif-Analyst/" target="_blank" class="text-info text-decoration-none">
+      View My Github Profile
+    </a>
+  </div>
+
+ <div class="mt-4 d-flex justify-content-center gap-2 flex-wrap">
+
+   View CV -->
+  <!--<a href="/cv.pdf" 
+     target="_blank"
+     class="btn btn-success px-4">
+     <i class="fas fa-eye me-1"></i> View CV
+  </a>
+
+   Download CV 
+  <a href="/cv.pdf" 
+     download
+     class="btn btn-warning px-4">
+     <i class="fas fa-download me-1"></i> Download CV
+  </a>
+
+</div>
+
+<form id="contactForm" name="contact" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="contact">
+     Name 
+    <div class="mb-2">
+      <input type="text" name="name" class="form-control" placeholder="Your Name">
+    </div>
+
+    Query 
+    <div class="mb-2">
+      <input type="text" name="contact" class="form-control" placeholder="abc@gmail.com / Phone number">
+    </div>
+
+    Message 
+    <div class="mb-3">
+      <textarea class="form-control" name="message" rows="3" placeholder="Subject / Query / Your Message"></textarea>
+    </div>
+
+    Button 
+    <div class="text-center">
+      <button type="submit" id="submitBtn" class="btn btn-info px-4">
+        Send Message
+      </button>
+    </div>
+
+  </form>
+  <p id="successMsg" style="display:none; color:rgb(152, 242, 152);">
+  ✅ Message sent successfully!
+</p>
+</div>
+
+</div> -->
+
+<!-- contact.html -->
+<!-- ✅ FIX: removed style="height: 532px" + added responsive padding -->
+<div class="bg-dark text-center text-white p-3 p-sm-4 rounded shadow">
+
+  <h1 class="mb-4">Contact Me</h1>
+
+  <div class="mb-3">
+    <i class="fas fa-phone me-2 text-info"></i>
+    <strong>Phone:</strong>
+    <a href="tel:+919082122041" class="text-white text-decoration-none">+91 9082122041</a>
+  </div>
+
+  <div class="mb-3">
+    <i class="fas fa-envelope me-2 text-info"></i>
+    <strong>Email:</strong>
+    <a href="mailto:shaikhadeeba171104@gmail.com" class="text-white text-decoration-none">shaikhadeeba171104@gmail.com</a>
+  </div>
+
+  <div class="mb-3">
+    <i class="fab fa-linkedin me-2 text-info"></i>
+    <strong>LinkedIn:</strong>
+    <a href="https://www.linkedin.com/in/shaikhadeebahanif/" target="_blank" class="text-info text-decoration-none">
+      View My LinkedIn Profile
+    </a>
+  </div>
+
+  <div class="mb-3">
+    <i class="fab fa-github me-2 text-info"></i>
+    <strong>GitHub:</strong>
+    <a href="https://github.com/AdeebaHanif-Analyst/" target="_blank" class="text-info text-decoration-none">
+      View My Github Profile
+    </a>
+  </div>
+
+  <!-- CV Buttons -->
+  <div class="mt-3 mb-4 d-flex justify-content-center gap-2 flex-wrap">
+    <a href="/cv.pdf" target="_blank" class="btn btn-success px-4">
+      <i class="fas fa-eye me-1"></i> View CV
+    </a>
+    <a href="/cv.pdf" download class="btn btn-warning px-4">
+      <i class="fas fa-download me-1"></i> Download CV
+    </a>
+  </div>
+
+  <!-- Contact Form -->
+  <!-- ✅ text-start so form labels/inputs align left, looks cleaner -->
+  <div class="text-start">
+    <form id="contactForm" name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact">
+
+      <div class="mb-2">
+        <input type="text" name="name" class="form-control" placeholder="Your Name">
+      </div>
+
+      <div class="mb-2">
+        <input type="text" name="contact" class="form-control" placeholder="abc@gmail.com / Phone number">
+      </div>
+
+      <div class="mb-3">
+        <textarea class="form-control" name="message" rows="3" placeholder="Subject / Query / Your Message"></textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" id="submitBtn" class="btn btn-info px-4">
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <p id="successMsg" style="display:none; color:rgb(152, 242, 152);" class="mt-3">
+    ✅ Message sent successfully!
+  </p>
+
+</div>
